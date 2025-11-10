@@ -1,0 +1,24 @@
+<app-busca-input
+placeholder="Buscar por capital"
+(sigValor)="query.set($event)"
+[debounceTime]=800
+[ValorInicial]="query()"
+/>
+<!-- (sigValor) es la señal que esta del lado de busca input el $event es el evento que genera busca input -->
+
+<!-- @if(capitalRecurso.error()) {
+  <div role="alert" class="alert alert-error alert-dash">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span>{{capitalRecurso.error()}}</span>
+  </div>
+}@if(capitalRecurso.hasValue()){
+  <app-tabla [paises]="capitalRecurso.value()!"/>
+} -->
+<app-tabla
+  [paises]="capitalRecurso.hasValue() ? capitalRecurso.value() : []"
+  [isLoading]="capitalRecurso.isLoading()"
+  [errorMensaje]="capitalRecurso.error()"
+  [isEmpty]="capitalRecurso.hasValue() && capitalRecurso.value().length === 0"
+/>

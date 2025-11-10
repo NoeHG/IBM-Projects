@@ -1,0 +1,16 @@
+@if (codigoRecurso.error()) {
+  <app-not-found/>
+}
+
+@if (codigoRecurso.isLoading()) {
+  <tr class="flex flex-col items-center justify-center mt-10">
+    <td colspan="8" class="text-center">
+      <span class="loading loading-spinner text-info"></span>
+      Espere por favor
+    </td>
+  </tr>
+}
+
+@if(codigoRecurso.hasValue()){
+  <app-codigo-pais-info [pais]="codigoRecurso.value()!"/>
+}
