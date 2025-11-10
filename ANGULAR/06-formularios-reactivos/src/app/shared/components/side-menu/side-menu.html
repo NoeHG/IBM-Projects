@@ -1,0 +1,34 @@
+<h2>Paginas</h2>
+<hr>
+<div class="btn-group">
+  <div class="btn-group">
+    <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown">Reactive</button>
+    <ul class="dropdown-menu">
+      @for (item of reactiveMenu; track item.title) {
+        <li><a class="dropdown-item" [routerLink]="item.route" routerLinkActive="active">{{ item.title }}</a></li>
+      }
+    </ul>
+  </div>
+  <!-- <div class="btn-group">
+    <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown">Auth</button>
+    <ul class="dropdown-menu">
+      @for (item of authMenu; track item.title) {
+        <li><a class="dropdown-item"[routerLink]="item.route" routerLinkActive="active">{{ item.title }}</a></li>
+      }
+    </ul>
+  </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown">Paises</button>
+    <ul class="dropdown-menu">
+      @for (item of countryMenu; track item.title) {
+        <li><a class="dropdown-item"[routerLink]="item.route" routerLinkActive="active">{{ item.title }}</a></li>
+      }
+    </ul>
+  </div> -->
+  @for (item of authMenu; track item.title) {
+    <button type="button" class="btn btn-outline-success" [routerLink]="item.route" routerLinkActive="active">{{item.title}}</button>
+  }
+  @for (item of countryMenu; track item.title) {
+    <button type="button" class="btn btn-outline-success" [routerLink]="item.route" routerLinkActive="active">{{item.title}}</button>
+  }
+</div>
